@@ -17,13 +17,13 @@
 > per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
-  _Your answer here._
+  _SSP from S only tells us minimum cost from source to a node. It is not enough because it doesn't tell us the shortest distance from an intermediate node to another target node._
 
 - **What decision remains after all inter-location costs are known:**
-  _Your answer here._
+  _We still have to choose in what order to visit all the nodes to minimize cost._
 
 - **Why this requires a search over orders (one sentence):**
-  _Your answer here._
+  _Must try all possible orderings to find order that visits all relic chambers in set M and minimizes fuel burned._
 
 ---
 

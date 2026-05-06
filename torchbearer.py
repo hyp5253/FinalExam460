@@ -34,7 +34,14 @@ def explain_problem():
 
     TODO
     """
-    return "TODO"
+
+    answer = """
+    SSP from S only tells us minimum cost from source to a node. It is not enough because it doesn't tell us the shortest distance from an intermediate node to another target node.
+    We still have to choose in what order to visit all the nodes to minimize cost.
+    Must try all possible orderings to find order that visits all relic chambers in set M and minimizes fuel burned.
+    """
+
+    return answer
 
 
 # =============================================================================
