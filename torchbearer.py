@@ -63,6 +63,7 @@ def select_sources(spawn, relics, exit_node):
 
     TODO
     """
+
     pass
 
 
@@ -81,6 +82,10 @@ def run_dijkstra(graph, source):
         Unreachable nodes map to float('inf').
 
     TODO
+    note steps:
+        build adj list
+        const INF = float('inf')
+        create empty result dict...
     """
     pass
 

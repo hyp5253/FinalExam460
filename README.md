@@ -42,22 +42,22 @@
 
 > Fill in the table. No prose required.
 
-| Property | Your answer |
-|---|---|
-| Data structure name | |
-| What the keys represent | |
-| What the values represent | |
-| Lookup time complexity | |
-| Why O(1) lookup is possible | |
+| Property | Your answer                               |
+|---|-------------------------------------------|
+| Data structure name | dictionary                                |
+| What the keys represent | directed edge u -> v                      |
+| What the values represent | min cost of going from src to dest u -> v |
+| Lookup time complexity | O(1)                                      |
+| Why O(1) lookup is possible | hashed keys are mapped to values          |
 
 ### Part 2c: Precomputation Complexity
 
 > State the total complexity and show the arithmetic. Two to three lines max.
 
-- **Number of Dijkstra runs:** _your answer_
-- **Cost per run:** _your answer_
-- **Total complexity:** _your answer_
-- **Justification (one line):** _your answer_
+- **Number of Dijkstra runs:** _k+1_
+- **Cost per run:** _O(mlogn) -> n=|V|, m=|E|, k=|M|_
+- **Total complexity:** _O((k+1)mlogn)_
+- **Justification (one line):** _Each run of SSP costs O(mlogn) and we need to run k+1 times to cover all relic chambers and source node._
 
 ---
 
