@@ -33,10 +33,10 @@
 
 > List the source node types as a bullet list. For each, one-line reason.
 
-| Source Node Type | Why it is a source |
-|---|---|
-| _node type_ | _one-line reason_ |
-| _node type_ | _one-line reason_ |
+| Source Node Type | Why it is a source                                                |
+|------------------|-------------------------------------------------------------------|
+| _Dungeon Entry_  | _Must enter the dungeon throught this node._                      |
+| _Relic Chamber_  | _Must figure out min distance from one chamber room to the next._ |
 
 ### Part 2b: Distance Storage
 

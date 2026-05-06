@@ -10,12 +10,13 @@
 
 ---
 
-## Entry 1 – May 6th: Understanding Problem + Initial planning
+## Entry 1 – May 6th: Understanding Problem + Precomputation Design
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_It took me a while to try and figure out what the problem was asking of me._
+_It took me a while to try and figure out what the problem was asking of me. 
+Although after figuring this out it made it easier in mapping out my design._
 
 ---
 
