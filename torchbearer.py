@@ -61,19 +61,19 @@ def select_sources(spawn, relics, exit_node):
     list[node]
         No duplicates. Order does not matter.
 
-    TODO
     """
-
     # couldn't our entry point be a relic chamber?
     # also if we start out with, and we want to check if there is a dupe we'd need to traverse at most N elements
     # instead just add to set which can't have dupes then convert to list
+
     sources = set()
     sources.add(spawn)
 
-    for relic in relics:
-        sources.add(relic)
+    # also technically the exit node could be a relic chamber but
+    # that means that it'll be added through this relic iteration sequence
+    for relic in relics: sources.add(relic)
 
-    pass
+    return list(sources)
 
 
 def run_dijkstra(graph, source):
@@ -90,7 +90,6 @@ def run_dijkstra(graph, source):
         Minimum cost from source to every node in graph.
         Unreachable nodes map to float('inf').
 
-    TODO
     """
     # the graph is already in the form of an adjacency list
     # no need to convert from edge list -> adj list
@@ -141,11 +140,14 @@ def precompute_distances(graph, spawn, relics, exit_node):
 
     TODO
     """
+    precomputed = {}
+    sources = select_sources(spawn, relics, exit_node)
 
-    distances = {}
+    for src in sources:
+        costs = run_dijkstra(graph, src)
+        precomputed[src] = costs
 
-    pass
-
+    return precomputed
 
 # =============================================================================
 # PART 3
