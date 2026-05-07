@@ -42,13 +42,13 @@
 
 > Fill in the table. No prose required.
 
-| Property | Your answer                               |
-|---|-------------------------------------------|
-| Data structure name | dictionary                                |
-| What the keys represent | directed edge u -> v                      |
-| What the values represent | min cost of going from src to dest u -> v |
-| Lookup time complexity | O(1)                                      |
-| Why O(1) lookup is possible | hashed keys are mapped to values          |
+| Property | Your answer                      |
+|---|----------------------------------|
+| Data structure name | dictionary                       |
+| What the keys represent | source node                      |
+| What the values represent | dict of dest mapped to min cost  |
+| Lookup time complexity | O(1)                             |
+| Why O(1) lookup is possible | hashed keys are mapped to values |
 
 ### Part 2c: Precomputation Complexity
 
