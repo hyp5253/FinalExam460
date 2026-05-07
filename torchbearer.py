@@ -64,6 +64,15 @@ def select_sources(spawn, relics, exit_node):
     TODO
     """
 
+    # couldn't our entry point be a relic chamber?
+    # also if we start out with, and we want to check if there is a dupe we'd need to traverse at most N elements
+    # instead just add to set which can't have dupes then convert to list
+    sources = set()
+    sources.add(spawn)
+
+    for relic in relics:
+        sources.add(relic)
+
     pass
 
 
@@ -105,17 +114,14 @@ def run_dijkstra(graph, source):
         if fuel_burned > best_so_far[u]: continue
         
         for v, fuel_cost_to_v in graph[u]:
-            candidate = fuel_burned + fuel_cost_to_v
+            cost_to_v_from_u = fuel_burned + fuel_cost_to_v
             
-            if candidate < best_so_far[v]:
-                best_so_far[v] = candidate
+            if cost_to_v_from_u < best_so_far[v]:
+                best_so_far[v] = cost_to_v_from_u
                 # we want to explore paths to other nodes from this better one
-                heapq.heappush(heap, (candidate, v))
-        
-        
+                heapq.heappush(heap, (cost_to_v_from_u, v))
 
-
-
+    return best_so_far
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
@@ -135,6 +141,9 @@ def precompute_distances(graph, spawn, relics, exit_node):
 
     TODO
     """
+
+    distances = {}
+
     pass
 
 
