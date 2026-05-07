@@ -83,7 +83,7 @@ def run_dijkstra(graph, source):
 
     TODO
     """
-    # the graph is already in teh form of an adjacency list
+    # the graph is already in the form of an adjacency list
     # no need to convert from edge list -> adj list
 
     # the number of keys is how many nodes we have in the graph
@@ -92,6 +92,27 @@ def run_dijkstra(graph, source):
 
     # can't index these nodes we can use a dict to map node -> best so far
     best_so_far = { node : INF for node in graph.keys() }
+    
+    best_so_far[source] = 0
+    # we want to the heap to have min cost on top so do tuple of
+    # (cost, node)
+    heap = [(0, source)]
+    
+    while heap:
+        fuel_burned, u = heapq.heappop(heap)
+        
+        # we don't want to store anything worse
+        if fuel_burned > best_so_far[u]: continue
+        
+        for v, fuel_cost_to_v in graph[u]:
+            candidate = fuel_burned + fuel_cost_to_v
+            
+            if candidate < best_so_far[v]:
+                best_so_far[v] = candidate
+                # we want to explore paths to other nodes from this better one
+                heapq.heappush(heap, (candidate, v))
+        
+        
 
 
 
