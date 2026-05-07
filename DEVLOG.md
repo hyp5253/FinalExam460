@@ -10,13 +10,17 @@
 
 ---
 
-## Entry 1 – May 6th: Understanding Problem + Precomputation Design
+## Entry 1 – May 6th: Initial Plan
 
 > Required. Write this before writing any code. Describe your plan: what you will
 > implement first, what parts you expect to be difficult, and how you plan to test.
 
-_It took me a while to try and figure out what the problem was asking of me. 
-Although after figuring this out it made it easier in mapping out my design._
+_It took me a while to try and figure out what the problem was asking of me.
+I first plan to implement all of the smaller helper functions, like a single
+dijkstra run and getting proper data structures set up. I plan to test by 
+using the provided test cases, but also creating my own intermediate mini cases -
+either print testing or if I have time unit tests. What I expect to be the most
+difficult is finding the correct permutation that gives the min cost._
 
 ---
 
