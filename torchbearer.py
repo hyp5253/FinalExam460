@@ -82,12 +82,19 @@ def run_dijkstra(graph, source):
         Unreachable nodes map to float('inf').
 
     TODO
-    note steps:
-        build adj list
-        const INF = float('inf')
-        create empty result dict...
     """
-    pass
+    # the graph is already in teh form of an adjacency list
+    # no need to convert from edge list -> adj list
+
+    # the number of keys is how many nodes we have in the graph
+    n = len(graph.keys())
+    INF = float("inf")
+
+    # can't index these nodes we can use a dict to map node -> best so far
+    best_so_far = { node : INF for node in graph.keys() }
+
+
+
 
 
 def precompute_distances(graph, spawn, relics, exit_node):
