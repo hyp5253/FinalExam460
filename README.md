@@ -105,7 +105,7 @@ _To minimize total fuel burned, we must select the shortest route from current t
 > State the failure mode. Then give a concrete counter-example using specific node names
 > or costs (you may use the illustration example from the spec). Three to five bullets.
 
-## My Concrete Illustration
+### My Concrete Illustration
 **Entrance:** S | **Relic chambers:** B, C, D | **Exit:** T
 
 After computing cheapest inter-location travel costs, suppose you have:
@@ -125,7 +125,7 @@ Two possible routes:
 Both collect every relic. Both end at T. Their total costs differ. Knowing cheapest
 point-to-point travel costs alone does not tell you which collection order is optimal.
 
-- **The failure mode:** _Your answer here._
+- **The failure mode:** _Chooses the next closest relic chamber (aka the least costing fuel path)._
 - **Counter-example setup:** _Check illustration above..._
 - **What greedy picks:** _Always choose the cheapest fuel route without looking ahead._
 - **What optimal picks:** _May choose a more expensive fuel route, that decrease total fuel burned._
