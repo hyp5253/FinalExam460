@@ -72,29 +72,29 @@
 > Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
-  _We have found a series of nodes whose sum of edges from src to dest is the shortest possible._
+  _We have found a series of nodes whose sum of edges from X to node V is the shortest possible._
 
 - **For nodes not yet finalized (not in S):**
-  _Still building our overall shortest path to dest and storing our shortest path so far to an intermediate node from src._
+  _We have stored the shortest path from X to U, and the nodes in the path from X to U are in already S (building optimal solution from local greedy decisions)._
 
 ### Part 3b: Why Each Phase Holds
 
 > One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Distance to source is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in S._
+  _Distance to X is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in S (distance is not yet finalized)._
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _If we use a min heap, we always pop off and take the smallest edge (a local choice). Because no negative edges, we can't ever locally choose a larger value, and end up with a better lesser costing path._
+  _If we use a min heap, we always pop off and take the smallest edge (a local choice). Because non-negative edges, we can't ever locally choose a larger value first, and end up with a better lesser costing path._
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-  _All nodes will be finalized and part of set S, meaning that the distance to each node from source is the shortest possible._
+  _All reachable nodes will be finalized and part of set S, meaning that the distance to each V from X is the shortest possible._
 
 ### Part 3c: Why This Matters for the Route Planner
 
 > One sentence connecting correct distances to correct routing decisions.
 
-_Your answer here._
+_To minimize total fuel burned, we must select the shortest route from current to next viable node (relic or exit)._
 
 ---
 
