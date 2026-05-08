@@ -105,17 +105,37 @@ _To minimize total fuel burned, we must select the shortest route from current t
 > State the failure mode. Then give a concrete counter-example using specific node names
 > or costs (you may use the illustration example from the spec). Three to five bullets.
 
+## My Concrete Illustration
+**Entrance:** S | **Relic chambers:** B, C, D | **Exit:** T
+
+After computing cheapest inter-location travel costs, suppose you have:
+
+| From \ To | B  | C   | D   | T   |
+|-----------|----|-----|-----|-----|
+| S         | 1  | 2   | 2   | --  |
+| B         | -- | 100 | 20  | 10  |
+| C         | 1  | --  | 100 | 20  |
+| D         | 1  | 10  | --  | 100 |
+
+Two possible routes:
+
+- Greedy Route: S -> B -> D -> C -> T &nbsp; total fuel = 1 + 20 + 10 + 20 = **51**
+- Optimal Route: S -> D -> C -> B -> T &nbsp; total fuel = 2 + 10 + 1 + 10= **23**
+
+Both collect every relic. Both end at T. Their total costs differ. Knowing cheapest
+point-to-point travel costs alone does not tell you which collection order is optimal.
+
 - **The failure mode:** _Your answer here._
-- **Counter-example setup:** _Your answer here._
-- **What greedy picks:** _Your answer here._
-- **What optimal picks:** _Your answer here._
-- **Why greedy loses:** _Your answer here._
+- **Counter-example setup:** _Check illustration above..._
+- **What greedy picks:** _Always choose the cheapest fuel route without looking ahead._
+- **What optimal picks:** _May choose a more expensive fuel route, that decrease total fuel burned._
+- **Why greedy loses:** _Doesn't look ahead or consider other alternatives, and only cares about local best option._
 
 ### What the Algorithm Must Explore
 
 > One bullet. Must use the word "order."
 
-- _Your answer here._
+- _The best permutation (aka order of nodes) that minimizes fuel burned, visits all relic chambers, and starts and ends at the desginated nodes._
 
 ---
 
