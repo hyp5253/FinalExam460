@@ -75,17 +75,17 @@
   _We have found a series of nodes whose sum of edges from src to dest is the shortest possible._
 
 - **For nodes not yet finalized (not in S):**
-  _Still building our overall shortest path to dest by storing our shortest path to an intermediate node from src._
+  _Still building our overall shortest path to dest and storing our shortest path so far to an intermediate node from src._
 
 ### Part 3b: Why Each Phase Holds
 
 > One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Your answer here._
+  _Distance to source is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in S._
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _Your answer here._
+  _Assuming no negative edges and if we use a min heap, we always pop off and take the smallest edge (a local choice). Optimal substructure let's our local choices to intermediate nodes build overall optimal solution._
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
   _Your answer here._
