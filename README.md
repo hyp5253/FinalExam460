@@ -72,10 +72,10 @@
 > Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
-  _Your answer here._
+  _We have found a series of nodes whose sum of edges from src to dest is the shortest possible._
 
 - **For nodes not yet finalized (not in S):**
-  _Your answer here._
+  _Still building our overall shortest path to dest by storing our shortest path to an intermediate node from src._
 
 ### Part 3b: Why Each Phase Holds
 
