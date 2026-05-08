@@ -85,10 +85,10 @@
   _Distance to source is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in S._
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _Assuming no negative edges and if we use a min heap, we always pop off and take the smallest edge (a local choice). Optimal substructure let's our local choices to intermediate nodes build overall optimal solution._
+  _If we use a min heap, we always pop off and take the smallest edge (a local choice). Because no negative edges, we can't ever locally choose a larger value, and end up with a better lesser costing path._
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
-  _Your answer here._
+  _All nodes will be finalized and part of set S, meaning that the distance to each node from source is the shortest possible._
 
 ### Part 3c: Why This Matters for the Route Planner
 
