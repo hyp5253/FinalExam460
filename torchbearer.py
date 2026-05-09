@@ -252,10 +252,6 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
 		undo(state, choice) 			    <-- after we return from recursion reset the stuff you changed
     """
 
-    # Note:
-    #   our current state is the relic visited order
-    #   so when making or undoing a choice we also need to pass the remaining relics to update it
-    #   we also have to update the overall cost so far by dist[relic chamber chosen]
 
     # base case if we have reached all relic chambers
     def _goal() -> bool:
@@ -263,26 +259,30 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
             return True
         return False
 
-    def _choose(relic):
-        pass
-
-    def _undo(relic):
-        pass
-
     def _get_best_cost():
         best_cost = 0
-        for i in range(1, len(relics_visited_order)):
-            best_cost += dist_table[relics_visited_order[i-1]][relics_visited_order[i]]
+        for i in range(1, len(best)):
+            best_cost += dist_table[best[i-1]][best[i]]
         return best_cost
 
     best_cost = _get_best_cost()
     if _goal() and cost_so_far < best_cost:
         best = relics_visited_order
         return
-    if cost_so_far >= best_cost:
+    if cost_so_far >= best_cost: # this is the pruning thing
         return
     for r in relics_remaining:
-        pass
+        if dist_table[current_loc][r] != float("inf"):
+            # make choice
+            relics_remaining.remove(r)
+            relics_visited_order.append(r)
+            cost_so_far += dist_table[current_loc][r]
+            # recursive call
+            _explore(dist_table, r, relics_remaining, relics_visited_order, cost_so_far, exit_node, best)
+            # undo choice
+            cost_so_far -= dist_table[current_loc][r]
+            relics_visited_order.pop()
+            relics_remaining.add(r)
 
 
 # =============================================================================
