@@ -207,11 +207,13 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
     TODO
     """
     current_loc = spawn
-    relics_visited_order = [spawn]
+    relics_visited_order = []
+    remaining_relics = set(relics)
     cost_so_far = 0
-    best = []
+    best = [float('inf'), []]
 
-    # _explore(dist_table, current_loc, relics, relics_visited_order, cost_so_far, exit_node, best)
+    _explore(dist_table, current_loc, remaining_relics, relics_visited_order, cost_so_far, exit_node, best)
+    return tuple(best)
 
 def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
              cost_so_far, exit_node, best):
@@ -249,19 +251,15 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
             return True
         return False
 
-    def _get_best_cost():
-        best_cost = 0
-        for i in range(1, len(best)):
-            best_cost += dist_table[best[i-1]][best[i]]
-        return best_cost if best_cost == 0 else float("inf")
-
-    best_cost = _get_best_cost()
-    if _goal() and cost_so_far < best_cost:
-        best = relics_visited_order
+    best_cost = best[0]
+    cost_to_exit = cost_so_far + dist_table[current_loc][exit_node]
+    if _goal() and cost_to_exit < best_cost:
+        best[0] = cost_to_exit
+        best[1] = relics_visited_order.copy()
         return
     if cost_so_far >= best_cost: # this is the pruning thing
         return
-    for r in relics_remaining:
+    for r in relics_remaining.copy():
         if dist_table[current_loc][r] != float("inf"):
             # make choice
             relics_remaining.remove(r)
