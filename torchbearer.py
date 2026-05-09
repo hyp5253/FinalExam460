@@ -257,9 +257,9 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     #   so when making or undoing a choice we also need to pass the remaining relics to update it
     #   we also have to update the overall cost so far by dist[relic chamber chosen]
 
-    # if we have reached the exit node then we have found a solution
-    def _goal(curr):
-        pass
+    # base case if we have reached all relic chambers
+    def _goal(relics) -> bool:
+        return True if len(relics) == 0 else False
 
     # we only want to explore paths that are better than the best so far
     # if not then we don't want to even try those solutions anymore
@@ -267,10 +267,13 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
 
     # we can only choose to visit chambers that aren't in our path
     # but do we also have to account for the fact that if we choose a final node but reach the exit?
-    def _make_choice(): pass
+    def _choose(curr, remaining, order, cost): pass
 
-    def _undo(state, choice): pass
+    def _undo(curr, remaining, order, cost): pass
     pass
+
+    if _goal(relics_remaining):
+        pass
 
 
 # =============================================================================
