@@ -252,9 +252,9 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
         return False
 
     best_cost = best[0]
-    cost_to_exit = cost_so_far + dist_table[current_loc][exit_node]
-    if _goal() and cost_to_exit < best_cost:
-        best[0] = cost_to_exit
+    total_cost = cost_so_far + dist_table[current_loc][exit_node]
+    if _goal() and total_cost < best_cost:
+        best[0] = total_cost
         best[1] = relics_visited_order.copy()
         return
     if cost_so_far >= best_cost: # this is the pruning thing
@@ -294,7 +294,9 @@ def solve(graph, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    dist_table = precompute_distances(graph, spawn, relics, exit_node)
+    result = find_optimal_route(dist_table, spawn, relics, exit_node)
+    return result
 
 
 # =============================================================================
