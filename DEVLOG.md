@@ -24,12 +24,11 @@ difficult is finding the correct permutation that gives the min cost._
 
 ---
 
-## Entry 2 – May 8th: Proofing and Design
+## Entry 2 – May 8th: Proofing and Design and Begin coding solution
 
-> Required. Write this before writing any code. Describe your plan: what you will
-> implement first, what parts you expect to be difficult, and how you plan to test.
-
-_Placeholder._
+_Worked on the invariant proofs, and created a counter example to prove why greedy
+fails in comparison the optimal solution. I also have started hashing out the 
+actual code solution._
 
 ---
 

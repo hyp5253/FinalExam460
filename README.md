@@ -147,22 +147,22 @@ point-to-point travel costs alone does not tell you which collection order is op
 > Variable names here must match exactly what you use in torchbearer.py.
 
 | Component | Variable name in code | Data type | Description |
-|---|---|---|---|
-| Current location | | | |
-| Relics already collected | | | |
-| Fuel cost so far | | | |
+|---|-----------------------|-----------|-------------|
+| Current location | --                    | char      | --          |
+| Relics already collected | --                    | set       | --          |
+| Fuel cost so far | --                    | float     | --          |
 
 ### Part 5b: Data Structure for Visited Relics
 
 > Fill in the table.
 
-| Property | Your answer |
-|---|---|
-| Data structure chosen | |
-| Operation: check if relic already collected | Time complexity: |
-| Operation: mark a relic as collected | Time complexity: |
-| Operation: unmark a relic (backtrack) | Time complexity: |
-| Why this structure fits | |
+| Property | Your answer                                                                |
+|---|----------------------------------------------------------------------------|
+| Data structure chosen | set                                                                        |
+| Operation: check if relic already collected | Time complexity: O(1)                                                      |
+| Operation: mark a relic as collected | Time complexity: O(1)                                                      |
+| Operation: unmark a relic (backtrack) | Time complexity: O(1)                                                      |
+| Why this structure fits | Ensures unique elements, and allows for fast inserts, checks, and removals |
 
 ### Part 5c: Worst-Case Search Space
 
