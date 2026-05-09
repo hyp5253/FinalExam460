@@ -258,22 +258,23 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     #   we also have to update the overall cost so far by dist[relic chamber chosen]
 
     # base case if we have reached all relic chambers
-    def _goal(distances, curr_loc, relics, exit_loc) -> bool:
-        if len(relics) == 0 and curr_loc == exit_loc: return True
-        elif len(relics) == 0 and distances[curr_loc][exit_loc] == float('inf'): return False
+    def _goal() -> bool:
+        if not relics_remaining and (current_loc == exit_node or dist_table[current_loc][exit_node] != float("inf")):
+            return True
         return False
 
     # we only want to explore paths that are better than the best so far
     # if not then we don't want to even try those solutions anymore
-    def _bounding(): pass
-
+    def _bounding():
+        pass
 
     # we can only choose to visit chambers that aren't in our path
     # but do we also have to account for the fact that if we choose a final node but reach the exit?
     def _choose(curr, remaining, order, cost):
         pass
 
-    def _undo(curr, remaining, order, cost): pass
+    def _undo(curr, remaining, order, cost):
+        pass
 
 
 
