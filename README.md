@@ -179,9 +179,9 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 > Three bullets.
 
-- **What is tracked:** _Your answer here._
-- **When it is used:** _Your answer here._
-- **What it allows the algorithm to skip:** _Your answer here._
+- **What is tracked:** _The best or least costing fuel path to a node._
+- **When it is used:** _When deciding to continue exploring a path from a certain node._
+- **What it allows the algorithm to skip:** _Any path that would give us a worse or less efficient fuel path._
 
 ### Part 6b: Lower Bound Estimation
 
