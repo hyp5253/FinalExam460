@@ -238,6 +238,20 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     explaining why it is safe (cannot skip the optimal solution).
     This comment is graded.
     """
+
+    """
+    def search(state, cost)
+	if goal(state) == True:
+		update best so far(cost)
+		return 					<-- start the next function iteration thing
+	if bounding(state, cost) >= best: 		<-- this is a pruning step
+		return
+	for c in choices:
+		make some choice (state, choice) 	<-- validity is built into either bounding or choice function
+		search(state, new cost) 		<-- recursive call
+		undo(state, choice) 			<-- after we return from recursion reset the stuff you changed
+    """
+
     pass
 
 
