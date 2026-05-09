@@ -32,12 +32,16 @@ actual code solution._
 
 ---
 
-## Entry 3 – [Date]: [Short description]
+## Entry 3 – May 9th: Defining the goal state
 
 > Required. At least one entry must describe a bug, wrong assumption, or design change
 > you encountered. Describe what went wrong and how you resolved it.
 
-_Your entry here._
+_I assumed that we have reached our base case, aka the goal state if all the remaining relics are used.
+However, I realized that because it's a directed graph, we also need to make sure that if we have reached 
+all relic chambers, we need to have a path from our current location to the exit, and if not we have to 
+discard this path. I resolved this problem by including a check in my goal function to see if we have visited
+all chambers, and are not at the exit node, that we have a route to the exit._
 
 ---
 
