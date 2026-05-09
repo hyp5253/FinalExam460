@@ -206,8 +206,12 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
 
     TODO
     """
-    pass
+    current_loc = spawn
+    relics_visited_order = [spawn]
+    cost_so_far = 0
+    best = []
 
+    # _explore(dist_table, current_loc, relics, relics_visited_order, cost_so_far, exit_node, best)
 
 def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
              cost_so_far, exit_node, best):
@@ -239,20 +243,6 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     This comment is graded.
     """
 
-    """
-    def search(state, cost)
-	if goal(state) == True:
-		update best so far(cost)
-		return 					            <-- start the next function iteration thing
-	if bounding(state, cost) >= best: 		<-- this is a pruning step
-		return
-	for c in choices:
-		make some choice (state, choice) 	<-- validity is built into either bounding or choice function
-		search(state, new cost) 		    <-- recursive call
-		undo(state, choice) 			    <-- after we return from recursion reset the stuff you changed
-    """
-
-
     # base case if we have reached all relic chambers
     def _goal() -> bool:
         if not relics_remaining and dist_table[current_loc][exit_node] != float("inf"):
@@ -263,7 +253,7 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
         best_cost = 0
         for i in range(1, len(best)):
             best_cost += dist_table[best[i-1]][best[i]]
-        return best_cost
+        return best_cost if best_cost == 0 else float("inf")
 
     best_cost = _get_best_cost()
     if _goal() and cost_so_far < best_cost:
