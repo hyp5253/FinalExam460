@@ -57,7 +57,7 @@
 - **Number of Dijkstra runs:** _k+1_
 - **Cost per run:** _O(mlogn) -> n=|V|, m=|E|, k=|M|_
 - **Total complexity:** _O((k+1)mlogn)_
-- **Justification (one line):** _Each run of SSP costs O(mlogn) and we need to run k+1 times to cover all relic chambers and source node._
+- **Justification (one line):** _Each run of SSP costs O(mlogn) and we need to run k+1 times to cover all relic chambers and spawn node._
 
 ---
 
@@ -146,11 +146,11 @@ point-to-point travel costs alone does not tell you which collection order is op
 > Document the three components of your search state as a table.
 > Variable names here must match exactly what you use in torchbearer.py.
 
-| Component | Variable name in code | Data type | Description                                        |
-|---|-----------------------|-----------|----------------------------------------------------|
-| Current location | current_loc           | char      | represents the room we are currently at            |
-| Relics already collected | relics_visited_order  | list      | tracks the relics we have selected along this path |
-| Fuel cost so far | cost_so_far           | float     | tracks total fuel burned so far on this route      |
+| Component | Variable name in code | Data type | Description                                                             |
+|---|-----------------------|-----------|-------------------------------------------------------------------------|
+| Current location | current_loc           | char      | represents the room we are currently at                                 |
+| Relics already collected | relics_visited_order  | list      | tracks the relics we have selected along this path in our decision tree |
+| Fuel cost so far | cost_so_far           | float     | tracks total fuel burned so far on this route                           |
 
 ### Part 5b: Data Structure for Visited Relics
 
@@ -168,8 +168,8 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 > Two bullets.
 
-- **Worst-case number of orders considered:** _Your answer (in terms of k)._
-- **Why:** _One-line justification._
+- **Worst-case number of orders considered:** _(k)(k-1)(k-2)...(1) = k!_
+- **Why:** _Spawn and exit are fixed, but we do need to permute the internal k relic chambers, so we then get k! possibilities._
 
 ---
 
@@ -187,9 +187,9 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 > Three bullets.
 
-- **What information is available at the current state:** _Your answer here._
-- **What the lower bound accounts for:** _Your answer here._
-- **Why it never overestimates:** _Your answer here._
+- **What information is available at the current state:** _Current location, relics visited order, remaining relics, best order found and associated fuel cost, current fuel cost._
+- **What the lower bound accounts for:** _._
+- **Why it never overestimates:** _._
 
 ### Part 6c: Pruning Correctness
 
@@ -203,4 +203,8 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 > Bullet list. If none beyond lecture notes, write that.
 
-- _Your references here._
+- _lecture notes_
+- _https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2012/e54e0c08cfb4234858e90c9c24351321_MIT6_046JS12_lec06.pdf_
+- _https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/312f4a419009b58f8147b75975db4347_MIT6_046JS15_lec11.pdf_
+- _https://www.cs.cmu.edu/afs/cs/academic/class/15210-s15/www/lectures/shortest-paths-notes.pdf_
+- _https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1262/lectures/11-backtracking1/_

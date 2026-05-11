@@ -256,7 +256,7 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
         best[0] = total_cost
         best[1] = relics_visited_order.copy()
         return
-    if cost_so_far >= best_cost: # this is the pruning thing
+    if cost_so_far >= best_cost: # FIXME explain why this pruning statement works
         return
     for r in relics_remaining.copy():
         if dist_table[current_loc][r] != float("inf"):
