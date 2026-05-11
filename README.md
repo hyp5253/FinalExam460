@@ -179,7 +179,7 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 > Three bullets.
 
-- **What is tracked:** _The relic visiting order so far, and current order fuel cost._
+- **What is tracked:** _The best relic visiting order found so far, and the minimum fuel cost for that best so far path._
 - **When it is used:** _When deciding to continue exploring a path from a certain node, or to skip it (aka prune that option)._
 - **What it allows the algorithm to skip:** _Any path that would give us a worse or less efficient fuel path._
 
@@ -187,16 +187,18 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 > Three bullets.
 
-- **What information is available at the current state:** _Current location, relics visited order, remaining relics, current fuel cost, best order found and associated fuel cost._
-- **What the lower bound accounts for:** _The least amount of fuel we must burn in order to reach the exit._
-- **Why it never overestimates:** _There are no paths that give us fuel back (aka negative edges) so the minimum fuel burned can't get any better._
+- **What information is available at the current state:** _Current location, relics visited order, remaining relics, 
+current fuel cost, best order found and associated fuel cost._
+- **What the lower bound accounts for:** _The least amount of fuel we must burn in order to reach all remaining relics, and then the exit._
+- **Why it never overestimates:** _All paths to other nodes are non-negative, so the fuel spent to reach our current location is a lower bound
+estimation of the total fuel burned - can't go any lower than this._
 
 ### Part 6c: Pruning Correctness
 
 > One to two bullets. Explain why pruning is safe.
 
 - _We only want to explore routes that make us use less fuel, and we can't get any fuel back because all non-negative edge weights._
-- _So if our current fuel cost is already equal to the minimum, and further exploration of this path ordering can't give us a lesser fuel cost._
+- _So if our current fuel cost is already equal to the best cost so far, any further exploration of this path ordering can't give us a lesser fuel cost._
 
 ---
 
