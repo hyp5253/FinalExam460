@@ -204,7 +204,6 @@ def find_optimal_route(dist_table, spawn, relics, exit_node):
         (minimum_fuel_cost, ordered_relic_list)
         Returns (float('inf'), []) if no valid route exists.
 
-    TODO
     """
     current_loc = spawn
     relics_visited_order = []
@@ -261,13 +260,13 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
         return
     for r in relics_remaining.copy():
         if dist_table[current_loc][r] != float("inf"):
-            # make choice
+            # choose a relic chamber and make that choice
             relics_remaining.remove(r)
             relics_visited_order.append(r)
             cost_so_far += dist_table[current_loc][r]
             # recursive call
             _explore(dist_table, r, relics_remaining, relics_visited_order, cost_so_far, exit_node, best)
-            # undo choice
+            # undo choice for backtracking
             cost_so_far -= dist_table[current_loc][r]
             relics_visited_order.pop()
             relics_remaining.add(r)
@@ -292,7 +291,6 @@ def solve(graph, spawn, relics, exit_node):
         (minimum_fuel_cost, ordered_relic_list)
         Returns (float('inf'), []) if no valid route exists.
 
-    TODO
     """
     dist_table = precompute_distances(graph, spawn, relics, exit_node)
     result = find_optimal_route(dist_table, spawn, relics, exit_node)

@@ -41,8 +41,7 @@ _I assumed that we have reached our base case, aka the goal state if all the rem
 However, I realized that because it's a directed graph, we also need to make sure that if we have reached 
 all relic chambers, we need to have a path from our current location to the exit, and if not we have to 
 discard this path. I resolved this problem by including a check in my goal function to see if we have visited
-all chambers, and are not at the exit node, that we have a route to the exit. Also, recursion auto undoes
-our stack and choosing things..._
+all chambers, and are not at the exit node, that we have a route to the exit._
 
 ---
 
@@ -66,13 +65,13 @@ _Your entry here._
 > Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
 | Part | Estimated Hours |
-|---|---------------|
-| Part 1: Problem Analysis | 2.5           |
-| Part 2: Precomputation Design | 1             |
-| Part 3: Algorithm Correctness | 1.5           |
-| Part 4: Search Design | 1             |
-| Part 5: State and Search Space |               |
-| Part 6: Pruning |               |
-| Part 7: Implementation |               |
-| README and DEVLOG writing |               |
-| **Total** |               |
+|---|-----------------|
+| Part 1: Problem Analysis | 2.5             |
+| Part 2: Precomputation Design | 1               |
+| Part 3: Algorithm Correctness | 1.5             |
+| Part 4: Search Design | 1               |
+| Part 5: State and Search Space | 2               |
+| Part 6: Pruning | 1.5             |
+| Part 7: Implementation | 1.5              |
+| README and DEVLOG writing |                 |
+| **Total** |                 |

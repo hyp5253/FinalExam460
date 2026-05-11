@@ -146,11 +146,11 @@ point-to-point travel costs alone does not tell you which collection order is op
 > Document the three components of your search state as a table.
 > Variable names here must match exactly what you use in torchbearer.py.
 
-| Component | Variable name in code | Data type | Description |
-|---|-----------------------|-----------|-------------|
-| Current location | --                    | char      | --          |
-| Relics already collected | --                    | set       | --          |
-| Fuel cost so far | --                    | float     | --          |
+| Component | Variable name in code | Data type | Description                                        |
+|---|-----------------------|-----------|----------------------------------------------------|
+| Current location | current_loc           | char      | represents the room we are currently at            |
+| Relics already collected | relics_visited_order  | list      | tracks the relics we have selected along this path |
+| Fuel cost so far | cost_so_far           | float     | tracks total fuel burned so far on this route      |
 
 ### Part 5b: Data Structure for Visited Relics
 
