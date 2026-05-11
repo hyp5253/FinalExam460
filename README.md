@@ -4,17 +4,9 @@
 **Student ID:** 130533998
 **Course:** CS 460 – Algorithms | Spring 2026
 
-> This README is your project documentation. Write it the way a developer would document
-> their design decisions , bullet points, brief justifications, and concrete examples where
-> required. You are not writing an essay. You are explaining what you built and why you built
-> it that way. Delete all blockquotes like this one before submitting.
-
 ---
 
 ## Part 1: Problem Analysis
-
-> Document why this problem is not just a shortest-path problem. Three bullet points, one
-> per question. Each bullet should be 1-2 sentences max.
 
 - **Why a single shortest-path run from S is not enough:**
   _SSP from S only tells us minimum cost from our spawn point      to a node. It is not enough because it doesn't tell us the shortest distance from an intermediate node to another target node._
@@ -31,16 +23,12 @@
 
 ### Part 2a: Source Selection
 
-> List the source node types as a bullet list. For each, one-line reason.
-
 | Source Node Type | Why it is a source                                                |
 |------------------|-------------------------------------------------------------------|
 | _Dungeon Entry_  | _Must enter the dungeon throught this node._                      |
 | _Relic Chamber_  | _Must figure out min distance from one chamber room to the next._ |
 
 ### Part 2b: Distance Storage
-
-> Fill in the table. No prose required.
 
 | Property | Your answer                      |
 |---|----------------------------------|
@@ -52,8 +40,6 @@
 
 ### Part 2c: Precomputation Complexity
 
-> State the total complexity and show the arithmetic. Two to three lines max.
-
 - **Number of Dijkstra runs:** _k+1_
 - **Cost per run:** _O(mlogn) -> n=|V|, m=|E|, k=|M|_
 - **Total complexity:** _O((k+1)mlogn)_
@@ -63,13 +49,7 @@
 
 ## Part 3: Algorithm Correctness
 
-> Document your understanding of why Dijkstra produces correct distances.
-> Bullet points and short sentences throughout. No paragraphs.
-
 ### Part 3a: What the Invariant Means
-
-> Two bullets: one for finalized nodes, one for non-finalized nodes.
-> Do not copy the invariant text from the spec.
 
 - **For nodes already finalized (in S):**
   _We have found a series of nodes whose sum of edges from X to node V is the shortest possible._
@@ -78,8 +58,6 @@
   _We have stored the shortest path from X to U, and the nodes in the path from X to U are in already S (building optimal solution from local greedy decisions)._
 
 ### Part 3b: Why Each Phase Holds
-
-> One to two bullets per phase. Maintenance must mention nonnegative edge weights.
 
 - **Initialization : why the invariant holds before iteration 1:**
   _Distance to X is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in S (distance is not yet finalized)._
@@ -92,8 +70,6 @@
 
 ### Part 3c: Why This Matters for the Route Planner
 
-> One sentence connecting correct distances to correct routing decisions.
-
 _To minimize total fuel burned, we must select the shortest route from current to next viable node, and all paths must start and spawn be able to reach exit._
 
 ---
@@ -101,9 +77,6 @@ _To minimize total fuel burned, we must select the shortest route from current t
 ## Part 4: Search Design
 
 ### Why Greedy Fails
-
-> State the failure mode. Then give a concrete counter-example using specific node names
-> or costs (you may use the illustration example from the spec). Three to five bullets.
 
 ### My Concrete Illustration
 **Entrance:** S | **Relic chambers:** B, C, D | **Exit:** T
@@ -133,8 +106,6 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 ### What the Algorithm Must Explore
 
-> One bullet. Must use the word "order."
-
 - _The best permutation (aka order of nodes) that minimizes fuel burned, visits all relic chambers, and starts and ends at the desginated nodes._
 
 ---
@@ -143,9 +114,6 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 ### Part 5a: State Representation
 
-> Document the three components of your search state as a table.
-> Variable names here must match exactly what you use in torchbearer.py.
-
 | Component | Variable name in code | Data type | Description                                                             |
 |---|-----------------------|-----------|-------------------------------------------------------------------------|
 | Current location | current_loc           | char      | represents the room we are currently at                                 |
@@ -153,8 +121,6 @@ point-to-point travel costs alone does not tell you which collection order is op
 | Fuel cost so far | cost_so_far           | float     | tracks total fuel burned so far on this route                           |
 
 ### Part 5b: Data Structure for Visited Relics
-
-> Fill in the table.
 
 | Property | Your answer                                                                |
 |---|----------------------------------------------------------------------------|
@@ -166,8 +132,6 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 ### Part 5c: Worst-Case Search Space
 
-> Two bullets.
-
 - **Worst-case number of orders considered:** _(k)(k-1)(k-2)...(1) = k!_
 - **Why:** _Spawn and exit are fixed, but we do need to permute the internal k relic chambers, so we then get k! possibilities._
 
@@ -177,15 +141,11 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 ### Part 6a: Best-So-Far Tracking
 
-> Three bullets.
-
 - **What is tracked:** _The best relic visiting order found so far, and the minimum fuel cost for that best so far path._
 - **When it is used:** _When deciding to continue exploring a path from a certain node, or to skip it (aka prune that option)._
 - **What it allows the algorithm to skip:** _Any path that would give us a worse or less efficient fuel path._
 
 ### Part 6b: Lower Bound Estimation
-
-> Three bullets.
 
 - **What information is available at the current state:** _Current location, relics visited order, remaining relics, 
 current fuel cost, best order found and associated fuel cost._
@@ -194,8 +154,6 @@ current fuel cost, best order found and associated fuel cost._
 estimation of the total fuel burned - can't go any lower than this._
 
 ### Part 6c: Pruning Correctness
-
-> One to two bullets. Explain why pruning is safe.
 
 - _We only want to explore routes that make us use less fuel, and we can't get any fuel back because all non-negative edge weights._
 - _So if our current fuel cost is already equal to the best cost so far, any further exploration of this path ordering can't give us a lesser fuel cost._
