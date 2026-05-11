@@ -45,9 +45,10 @@ all chambers, and are not at the exit node, that we have a route to the exit._
 
 ---
 
-## Entry 4 – [Date]: [Short description]
+## Entry 4 – May 10th: Explain state and pruning complexities
 
-_Your entry here._
+_I have started to fill out the necessary answers in the README, but I feel that my answers may
+be too vague. I still need to go back and polish these answers.._
 
 ---
 
