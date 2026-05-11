@@ -9,7 +9,8 @@
 ## Part 1: Problem Analysis
 
 - **Why a single shortest-path run from S is not enough:**
-  _SSP from S only tells us minimum cost from our spawn point      to a node. It is not enough because it doesn't tell us the shortest distance from an intermediate node to another target node._
+  _SSP from S only tells us minimum cost from our spawn point to a node. It is not enough because 
+it doesn't tell us the shortest distance from an intermediate node to another target node._
 
 - **What decision remains after all inter-location costs are known:**
   _We still have to choose in what order to visit all the nodes to minimize cost._
@@ -43,7 +44,8 @@
 - **Number of Dijkstra runs:** _k+1_
 - **Cost per run:** _O(mlogn) -> n=|V|, m=|E|, k=|M|_
 - **Total complexity:** _O((k+1)mlogn)_
-- **Justification (one line):** _Each run of SSP costs O(mlogn) and we need to run k+1 times to cover all relic chambers and spawn node._
+- **Justification (one line):** _Each run of SSP costs O(mlogn) and we need to run k+1 times to cover all relic 
+chambers and spawn node._
 
 ---
 
@@ -55,22 +57,26 @@
   _We have found a series of nodes whose sum of edges from X to node V is the shortest possible._
 
 - **For nodes not yet finalized (not in S):**
-  _We have stored the shortest path from X to U, and the nodes in the path from X to U are in already S (building optimal solution from local greedy decisions)._
+  _We have stored the shortest path from X to U, and the nodes in the path from X to U, are in already S (building 
+optimal solution from local greedy decisions)._
 
 ### Part 3b: Why Each Phase Holds
 
 - **Initialization : why the invariant holds before iteration 1:**
-  _Distance to X is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in S (distance is not yet finalized)._
+  _Distance to X is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in 
+S (distance is not yet finalized)._
 
 - **Maintenance : why finalizing the min-dist node is always correct:**
-  _If we use a min heap, we always pop off and take the smallest edge (a local choice). Because non-negative edges, we can't ever locally choose a larger value first, and end up with a better lesser costing path._
+  _If we use a min heap, we always pop off and take the smallest edge (a local choice). Because non-negative edges, we 
+can't ever locally choose a larger value first, and end up with a better lesser costing path._
 
 - **Termination : what the invariant guarantees when the algorithm ends:**
   _All reachable nodes will be finalized and part of set S, meaning that the distance to each V from X is the shortest possible._
 
 ### Part 3c: Why This Matters for the Route Planner
 
-_To minimize total fuel burned, we must select the shortest route from current to next viable node, and all paths must start and spawn be able to reach exit._
+_To minimize total fuel burned, we must select the shortest route from current to next viable node, and all paths must 
+start and spawn be able to reach exit._
 
 ---
 
@@ -106,7 +112,8 @@ point-to-point travel costs alone does not tell you which collection order is op
 
 ### What the Algorithm Must Explore
 
-- _The best permutation (aka order of nodes) that minimizes fuel burned, visits all relic chambers, and starts and ends at the desginated nodes._
+- _The best permutation (aka order of nodes) that minimizes fuel burned, visits all relic chambers, and starts and ends 
+at the desginated nodes._
 
 ---
 
@@ -156,7 +163,8 @@ estimation of the total fuel burned - can't go any lower than this._
 ### Part 6c: Pruning Correctness
 
 - _We only want to explore routes that make us use less fuel, and we can't get any fuel back because all non-negative edge weights._
-- _So if our current fuel cost is already equal to the best cost so far, any further exploration of this path ordering can't give us a lesser fuel cost._
+- _So if our current fuel cost is already equal to the best cost so far, any further exploration of this path ordering can't give us 
+a lesser fuel cost._
 
 ---
 
