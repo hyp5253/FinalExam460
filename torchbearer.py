@@ -61,15 +61,10 @@ def select_sources(spawn, relics, exit_node):
         No duplicates. Order does not matter.
 
     """
-    # couldn't our entry point be a relic chamber?
-    # also if we start out with, and we want to check if there is a dupe we'd need to traverse at most N elements
-    # instead just add to set which can't have dupes then convert to list
 
     sources = set()
     sources.add(spawn)
 
-    # also technically the exit node could be a relic chamber but
-    # that means that it'll be added through this relic iteration sequence
     for relic in relics: sources.add(relic)
 
     return list(sources)
@@ -142,6 +137,7 @@ def precompute_distances(graph, spawn, relics, exit_node):
     precomputed = {}
     sources = select_sources(spawn, relics, exit_node)
 
+    # we need all pairs of shortest paths so run dijkstra for every source
     for src in sources:
         costs = run_dijkstra(graph, src)
         precomputed[src] = costs
@@ -162,7 +158,18 @@ def dijkstra_invariant_check():
 
     TODO
     """
-    return "TODO"
+    return """
+    We have found a series of nodes whose sum of edges from X to node V is the shortest possible.
+    We have stored the shortest path from X to U, and the nodes in the path from X to U, are in already S (building 
+    optimal solution from local greedy decisions).
+    Distance to X is always 0 (possible shortest path). No other nodes have been reached or explored, so they are not in 
+    S (distance is not yet finalized).
+    If we use a min heap, we always pop off and take the smallest edge (a local choice). Because non-negative edges, we 
+    can't ever locally choose a larger value first, and end up with a better lesser costing path.
+    All reachable nodes will be finalized and part of set S, meaning that the distance to each V from X is the shortest possible.
+    To minimize total fuel burned, we must select the shortest route from current to next viable node, and all paths must 
+    start and spawn be able to reach exit.
+    """
 
 
 # =============================================================================
@@ -236,7 +243,6 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
     None
         Updates best in place.
 
-    TODO
     Implement: base case, pruning, recursive case, backtracking.
 
     REQUIRED: Add a 1-2 sentence comment near your pruning condition
@@ -256,8 +262,11 @@ def _explore(dist_table, current_loc, relics_remaining, relics_visited_order,
         best[0] = total_cost
         best[1] = relics_visited_order.copy()
         return
-    if cost_so_far >= best_cost: # FIXME explain why this pruning statement works
+    # Ignoring this pruned path is safe because any combination built with this visiting order so far burns same or more fuel than another
+    # path we already found.
+    if cost_so_far >= best_cost:
         return
+    # we have to make sure to iterate over each relic choice once
     for r in relics_remaining.copy():
         if dist_table[current_loc][r] != float("inf"):
             # choose a relic chamber and make that choice
