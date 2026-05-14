@@ -52,16 +52,18 @@ had to make sure to properly articulate my answers especially in the pruning and
 
 ---
 
-## Entry 5 – [Date]: Post-Implementation Reflection
+## Entry 5 – May 14th: Post-Implementation Reflection
 
 > Required. Written after your implementation is complete. Describe what you would
 > change or improve given more time.
 
-_Your entry here._
+_If I had more time, I would opt to use a different algorithm maybe something like the Floyd 
+Warshall algorithm that I came across during my research. Its run time of Big theta (n^3) is 
+better than the current implementation k! run time._
 
 ---
 
-## Final Entry – [Date]: Time Estimate
+## Final Entry – May 14th: Time Estimate
 
 > Required. Estimate minutes spent per part. Honesty is expected; accuracy is not graded.
 
@@ -73,6 +75,6 @@ _Your entry here._
 | Part 4: Search Design | 1               |
 | Part 5: State and Search Space | 2               |
 | Part 6: Pruning | 1.5             |
-| Part 7: Implementation | 1.5              |
-| README and DEVLOG writing |                 |
-| **Total** |                 |
+| Part 7: Implementation | 1.5             |
+| README and DEVLOG writing | 2.5             |
+| **Total** | 13.5            |
