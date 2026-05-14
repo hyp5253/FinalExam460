@@ -170,8 +170,6 @@ a lesser fuel cost._
 
 ## References
 
-> Bullet list. If none beyond lecture notes, write that.
-
 - _lecture notes_
 - _https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2012/e54e0c08cfb4234858e90c9c24351321_MIT6_046JS12_lec06.pdf_
 - _https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/312f4a419009b58f8147b75975db4347_MIT6_046JS15_lec11.pdf_
