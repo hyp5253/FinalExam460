@@ -186,7 +186,36 @@ def explain_search():
 
     TODO
     """
-    return "TODO"
+    return """
+    ### My Concrete Illustration
+    Entrance: S | Relic chambers: B, C, D | Exit T
+    
+    After computing cheapest inter-location travel costs, suppose you have:
+    
+    | From \ To | B  | C   | D   | T   |
+    |-----------|----|-----|-----|-----|
+    | S         | 1  | 2   | 2   | --  |
+    | B         | -- | 100 | 20  | 10  |
+    | C         | 1  | --  | 100 | 20  |
+    | D         | 1  | 10  | --  | 100 |
+    
+    Two possible routes:
+    
+    - Greedy Route: S -> B -> D -> C -> T &nbsp; total fuel = 1 + 20 + 10 + 20 = 51
+    - Optimal Route: S -> D -> C -> B -> T &nbsp; total fuel = 2 + 10 + 1 + 10= 23
+    
+    Both collect every relic. Both end at T. Their total costs differ. Knowing cheapest
+    point-to-point travel costs alone does not tell you which collection order is optimal.
+    
+    Chooses the next closest relic chamber (aka the least costing fuel path).
+    Check illustration above...
+    Always choose the cheapest fuel route without looking ahead.
+    May choose a more expensive fuel route first that decreases total fuel burned later.
+    Doesn't look ahead or consider other alternatives, and only cares about local best option.
+
+    The best permutation (aka order of nodes) that minimizes fuel burned, visits all relic chambers, and starts and ends 
+    at the designated nodes.
+    """
 
 
 # =============================================================================

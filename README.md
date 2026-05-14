@@ -43,7 +43,7 @@ it doesn't tell us the shortest distance from an intermediate node to another ta
 
 - **Number of Dijkstra runs:** _k+1_
 - **Cost per run:** _O(mlogn) -> n=|V|, m=|E|, k=|M|_
-- **Total complexity:** _O((k+1)mlogn)_
+- **Total complexity:** _O(kmlogn)_
 - **Justification (one line):** _Each run of SSP costs O(mlogn) and we need to run k+1 times to cover all relic 
 chambers and spawn node._
 
@@ -113,7 +113,7 @@ point-to-point travel costs alone does not tell you which collection order is op
 ### What the Algorithm Must Explore
 
 - _The best permutation (aka order of nodes) that minimizes fuel burned, visits all relic chambers, and starts and ends 
-at the desginated nodes._
+at the designated nodes._
 
 ---
 
